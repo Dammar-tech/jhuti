@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Only For You 💖</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;500;700&display=swap');
+
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            background: radial-gradient(circle at top, #ff7dbf, #0d0013);
+            color: white;
+            overflow-x: hidden;
+        }
+
+        /* ========== GLOBAL FLOATING DECOR ========== */
+        @keyframes floatDown {
+            to {
+                transform: translateY(120vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        .float {
+            position: fixed;
+            top: -20px;
+            animation: floatDown linear infinite;
+            pointer-events: none;
+            font-size: 22px;
+        }
+
+        /* ========== LOGIN ========== */
+        #login {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        #login h1 {
+            font-family: 'Great Vibes', cursive;
+            font-size: 5rem;
+            animation: glow 3s infinite alternate;
+        }
+
+        @keyframes glow {
+            from {
+                text-shadow: 0 0 20px #ff9ccc;
+            }
+
+            to {
+                text-shadow: 0 0 45px #ffd6ec;
+            }
+        }
+
+        #login input {
+            padding: 15px 30px;
+            border-radius: 40px;
+            border: none;
+            outline: none;
+            font-size: 16px;
+            margin-top: 15px;
+        }
+
+        #error {
+            color: #ffd1e8;
+            margin-top: 15px;
+        }
+
+        /* ========== BUTTON ========== */
+        button {
+            padding: 14px 40px;
+            border-radius: 50px;
+            border: none;
+            background: linear-gradient(45deg, #ff4d6d, #ff9bd1);
+            color: white;
+            font-size: 15px;
+            cursor: pointer;
+            box-shadow: 0 0 30px rgba(255, 150, 210, 0.8);
+            transition: 0.4s;
+        }
+
+        button:hover {
+            transform: scale(1.15);
+        }
+
+        .back {
+            background: #ffffff;
+            color: #ff4d6d;
+            margin-right: 10px;
+        }
+
+        /* ========== ENTRY ========== */
+        .entry {
+            display: none;
+            min-height: 100vh;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .entry h1 {
+            font-family: 'Great Vibes', cursive;
+            font-size: 5rem;
+        }
+
+        .entry p {
+            max-width: 760px;
+            font-size: 19px;
+            line-height: 1.9;
+        }
+
+        /* ========== MODALS ========== */
+        .modal {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.9);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 10;
+        }
+
+        .box {
+            position: relative;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.22), rgba(255, 255, 255, 0.08));
+            backdrop-filter: blur(30px);
+            border-radius: 45px;
+            padding: 50px;
+            max-width: 950px;
+            width: 94%;
+            text-align: center;
+            animation: rise 0.7s ease;
+        }
+
+        @keyframes rise {
+            from {
+                transform: translateY(50px) scale(0.85);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateY(0) scale(1);
+                opacity: 1;
+            }
+        }
+
+        .box h2 {
+            font-family: 'Great Vibes', cursive;
+            font-size: 3.3rem;
+        }
+
+        .box p {
+            font-size: 19px;
+            line-height: 2;
+        }
+
+        .box img {
+            width: 260px;
+            border-radius: 30px;
+            margin-top: 25px;
+            box-shadow: 0 0 40px rgba(255, 180, 230, 0.7);
+        }
+
+        /* ========== MODAL INSIDE ANIMATIONS ========== */
+        @keyframes emojiUp {
+            to {
+                transform: translateY(-140px);
+                opacity: 0;
+            }
+        }
+
+        .modal-float {
+            position: absolute;
+            bottom: 20px;
+            animation: emojiUp 4s linear infinite;
+            font-size: 26px;
+            opacity: 0.8;
+        }
+
+        /* ========== DAYS ========== */
+        .days {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 25px;
+            margin-top: 40px;
+        }
+
+        .day-btn {
+            padding: 35px 15px;
+            border-radius: 35px;
+            background: linear-gradient(135deg, #ff8ccf, #ff4d6d);
+            cursor: pointer;
+            box-shadow: 0 0 35px rgba(255, 160, 220, 0.7);
+            transition: 0.4s;
+        }
+
+        .day-btn:hover {
+            transform: scale(1.18) rotate(2deg);
+        }
+
+        .locked {
+            opacity: 0.4;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- LOGIN -->
+    <div id="login">
+        <h1>Only For You 💖</h1>
+        <p>This place opens only for one heart.</p>
+        <input id="username" placeholder="Username 💕">
+        <input id="password" type="password" placeholder="Password 🔐">
+        <button onclick="checkLogin()">Enter</button>
+        <p id="error"></p>
+    </div>
+
+    <!-- ENTRY -->
+    <div class="entry" id="entry">
+        <h1>Welcome, My Love 💖</h1>
+        <p> I made this space slowly, gently, thinking of you.  
+    Every click is a reminder that you are loved — deeply, quietly, truly.</p>
+        <button onclick="openModal('startModal')">Enter My Heart ✨</button>
+    </div>
+
+    <!-- START MODAL -->
+    <div class="modal" id="startModal">
+        <div class="box">
+            <div class="modal-float">💖</div>
+            <h2>Your Safe Place 🌸</h2>
+            <p>One feeling opens each day — just for you.</p>
+            <button onclick="openModal('daysModal')">Continue 💞</button>
+            <br><br>
+            <button class="back" onclick="goBack('startModal')">Back</button>
+        </div>
+    </div>
+
+    <!-- DAYS MODAL -->
+    <div class="modal" id="daysModal">
+        <div class="box">
+            <div class="modal-float">🌷</div>
+            <h2>Our Days 💕</h2>
+            <p>Only today opens. The rest are waiting with love.</p>
+            <div class="days" id="days"></div>
+            <br>
+            <button class="back" onclick="goBack('daysModal','startModal')">Back</button>
+        </div>
+    </div>
+
+    <!-- EXCITED MODAL -->
+    <div class="modal" id="exciteModal">
+        <div class="box">
+            <div class="modal-float">✨</div>
+            <h2>I’ve Been Waiting 💫</h2>
+            <p>I kept this feeling safe for you today. just to give it to you now.  
+      Are you ready? </p>
+            <button onclick="openLove()">Open Jhutiii😘😘</button>
+            <br><br>
+            <button class="back" onclick="goBack('exciteModal','daysModal')">Back</button>
+        </div>
+    </div>
+
+    <!-- LOVE MODAL -->
+    <div class="modal" id="loveModal">
+        <div class="box">
+            <div class="modal-float">❤️</div>
+            <h2 id="loveTitle"></h2>
+            <p id="loveText"></p>
+            <img id="loveImg">
+            <br><br>
+            <button class="back" onclick="goBack('loveModal','exciteModal')">Back</button>
+        </div>
+    </div>
+
+    <!-- WAIT MODAL -->
+    <div class="modal" id="waitModal">
+        <div class="box">
+            <div class="modal-float">🌸</div>
+            <h2>Not Yet 💕</h2>
+            <p> but tomorrow I’ll open something even more beautiful. ❤️😘</p>
+            <button class="back" onclick="goBack('waitModal','daysModal')">Back</button>
+        </div>
+    </div>
+
+    <script>
+        /* LOGIN */
+        const SECRET_USER = "Feb14mygirl";
+        const SECRET_PASS = "BuddhuJhuti";
+
+        function checkLogin() {
+            if (username.value === SECRET_USER && password.value === SECRET_PASS) {
+                login.style.display = "none";
+                entry.style.display = "flex";
+            } else {
+                error.innerText = "This heart recognizes only one soul 💕";
+            }
+        }
+
+        /* MODAL CONTROL */
+        function openModal(id) {
+            document.getElementById(id).style.display = "flex";
+        }
+        function goBack(current, previous) {
+            document.getElementById(current).style.display = "none";
+            if (previous) document.getElementById(previous).style.display = "flex";
+        }
+        function closeModal(id) { document.getElementById(id).style.display = "none"; }
+
+        /* DATE LOGIC */
+        const start = new Date("2026-02-05");
+        const end = new Date("2026-02-15");
+        const today = new Date(); today.setHours(0, 0, 0, 0);
+
+        const messages = {
+            "2026-02-05": "Today, I want you to know this clearly: you matter to me in ways that feel calm, steady, and real. You don’t have to try — you’re already enough. You are deeply valued, exactly as you are.",
+            "2026-02-06": "When I think of you, my mind slows down. You bring a kind of peace I didn’t know I needed. Thinking of you brings calm to my heart.",
+            "2026-02-07": "There’s something rare about your heart. The way you care, the way you feel — it’s beautiful. Your heart is rare and beautiful.",
+            "2026-02-08": "Loving you doesn’t feel loud. It feels safe. And I hope you always feel that with me. Loving you feels safe and true.",
+            "2026-02-09": "You inspire me just by being yourself. Quietly. Honestly.",
+            "2026-02-10": "Even on days we don’t talk much, you are still present in my heart.",
+            "2026-02-11": "I admire you more than I say. And I appreciate you more than you know.",
+            "2026-02-12": "If you ever feel tired, remember this — you are never facing life alone.",
+            "2026-02-13": "My heart trusts you. That’s something I don’t give easily.",
+            "2026-02-14": "Valentine’s Day feels meaningful because it reminds me of you.",
+            "2026-02-15": "This journey ends here, but my feelings don’t. They stay — gently, deeply."
+        };
+
+        const images = [
+            "WhatsApp Image 2026-02-05 at 10.36.23 PM.jpeg",
+            "https://scontent.fpkr1-1.fna.fbcdn.net/v/t39.30808-6/481272989_1183395416721647_5799008854212329773_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=127cfc&_nc_ohc=ob6y3562ZY4Q7kNvwFJWQ0C&_nc_oc=AdlB_2AYSnPKN581KyHE_y2QLpbujAt3QN2yZGbWNiddRbeyNuG_upwO350paWyEuNH-rNS612t-ElGrsJYYXr-K&_nc_zt=23&_nc_ht=scontent.fpkr1-1.fna&_nc_gid=Gtqsk2rcQpuIxqJxWwRQog&oh=00_AfuruHnx8XRwOevteUJabvjs3HTpZtw_9hbB4ItprRLNLg&oe=698AB253",
+            "https://scontent.fpkr1-1.fna.fbcdn.net/v/t51.82787-15/568687817_18030090926733613_4610557235002434989_n.webp?stp=dst-jpg_tt6&_nc_cat=106&ccb=1-7&_nc_sid=127cfc&_nc_ohc=HnRa8XNlHIkQ7kNvwFS-Zh0&_nc_oc=Adl1qKJ8mxmltcwgTdrspdMI3B4yqUNQydnBp498Dbo1vIe9oWh1zCi_HpFCRalTzEOTOiycj7J20R4fRIi3VDVm&_nc_zt=23&_nc_ht=scontent.fpkr1-1.fna&_nc_gid=ORIdH-pDQb0E7yIJwXFtuw&oh=00_Afs4DllJmNTr5ULT01r2uL4_hpNTMgbtjRNef7Bqv6kkHg&oe=698A9054",
+            "WhatsApp Image 2026-02-05 at 10.36.22 PM.jpeg",
+            "WhatsApp Image 2026-02-05 at 10.36.23 PM (1).jpeg",
+            "WhatsApp Image 2026-02-05 at 10.36.24 PM (2).jpeg",
+            "WhatsApp Image 2026-02-05 at 10.36.24 PM.jpeg",
+            "WhatsApp Image 2026-02-05 at 10.36.25 PM.jpeg",
+            "WhatsApp Image 2026-02-05 at 10.36.26 PM.jpeg",
+            "WhatsApp Image 2026-02-05 at 10.36.24 PM (1).jpeg",
+        ];
+
+        let selected = null;
+        days.innerHTML = "";
+
+        for (let d = new Date(start); d <= end; d.setDate(d.getDate() + 1)) {
+            const key = d.toISOString().split("T")[0];
+            const btn = document.createElement("div");
+            btn.className = "day-btn";
+            btn.innerHTML = `💖<br>${key}`;
+            const bd = new Date(d); bd.setHours(0, 0, 0, 0);
+            if (bd.getTime() !== today.getTime()) btn.classList.add("locked");
+            btn.onclick = () => {
+                if (bd.getTime() === today.getTime()) {
+                    selected = key; openModal("exciteModal");
+                } else openModal("waitModal");
+            };
+            days.appendChild(btn);
+        }
+
+        function openLove() {
+            loveTitle.innerText = "For You 💖";
+            loveText.innerText = messages[selected];
+            loveImg.src = images[Math.floor(Math.random() * images.length)];
+            goBack("exciteModal");
+            openModal("loveModal");
+        }
+
+        /* GLOBAL FLOATING DECOR */
+        setInterval(() => {
+            const e = document.createElement("div");
+            e.className = "float";
+            e.innerHTML = ["❤️", "🌸", "✨", "💖", "🌷", "💫", "🌹"][Math.floor(Math.random() * 7)];
+            e.style.left = Math.random() * 100 + "vw";
+            e.style.animationDuration = (Math.random() * 4 + 5) + "s";
+            document.body.appendChild(e);
+            setTimeout(() => e.remove(), 10000);
+        }, 150);
+    </script>
+
+</body>
+
+</html>
