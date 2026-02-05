@@ -5,9 +5,15 @@
     <meta charset="UTF-8">
     <title>Only For You 💖</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
 
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;500;700&display=swap');
+
+        * {
+            box-sizing: border-box;
+        }
 
         body {
             margin: 0;
@@ -17,7 +23,7 @@
             overflow-x: hidden;
         }
 
-        /* ========== GLOBAL FLOATING DECOR ========== */
+        /* FLOATING DECOR */
         @keyframes floatDown {
             to {
                 transform: translateY(120vh) rotate(360deg);
@@ -33,7 +39,7 @@
             font-size: 22px;
         }
 
-        /* ========== LOGIN ========== */
+        /* LOGIN */
         #login {
             min-height: 100vh;
             display: flex;
@@ -66,6 +72,8 @@
             outline: none;
             font-size: 16px;
             margin-top: 15px;
+            width: 280px;
+            max-width: 90%;
         }
 
         #error {
@@ -73,7 +81,7 @@
             margin-top: 15px;
         }
 
-        /* ========== BUTTON ========== */
+        /* BUTTON */
         button {
             padding: 14px 40px;
             border-radius: 50px;
@@ -93,10 +101,9 @@
         .back {
             background: #ffffff;
             color: #ff4d6d;
-            margin-right: 10px;
         }
 
-        /* ========== ENTRY ========== */
+        /* ENTRY */
         .entry {
             display: none;
             min-height: 100vh;
@@ -115,27 +122,34 @@
             max-width: 760px;
             font-size: 19px;
             line-height: 1.9;
+            padding: 0 15px;
         }
 
-        /* ========== MODALS ========== */
+        /* MODAL FIX (RESPONSIVE CORE) */
         .modal {
             position: fixed;
             inset: 0;
             background: rgba(0, 0, 0, 0.9);
             display: none;
+            align-items: flex-start;
+            /* IMPORTANT */
             justify-content: center;
-            align-items: center;
-            z-index: 10;
+            overflow-y: auto;
+            /* IMPORTANT */
+            z-index: 1000;
+            padding: 1.5rem 0;
         }
 
         .box {
-            position: relative;
+            margin: 2rem auto;
+            max-height: 90vh;
+            overflow-y: auto;
             background: linear-gradient(135deg, rgba(255, 255, 255, 0.22), rgba(255, 255, 255, 0.08));
             backdrop-filter: blur(30px);
             border-radius: 45px;
             padding: 50px;
-            max-width: 950px;
             width: 94%;
+            max-width: 950px;
             text-align: center;
             animation: rise 0.7s ease;
         }
@@ -164,12 +178,13 @@
 
         .box img {
             width: 260px;
+            max-width: 90%;
             border-radius: 30px;
             margin-top: 25px;
             box-shadow: 0 0 40px rgba(255, 180, 230, 0.7);
         }
 
-        /* ========== MODAL INSIDE ANIMATIONS ========== */
+        /* EMOJI FLOAT */
         @keyframes emojiUp {
             to {
                 transform: translateY(-140px);
@@ -178,36 +193,75 @@
         }
 
         .modal-float {
-            position: absolute;
-            bottom: 20px;
+            margin: 1.5rem 0;
             animation: emojiUp 4s linear infinite;
             font-size: 26px;
             opacity: 0.8;
         }
 
-        /* ========== DAYS ========== */
+        /* DAYS GRID (RESPONSIVE) */
         .days {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 25px;
-            margin-top: 40px;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+            margin-top: 25px;
         }
 
         .day-btn {
-            padding: 35px 15px;
-            border-radius: 35px;
+            padding: 25px 10px;
+            border-radius: 25px;
             background: linear-gradient(135deg, #ff8ccf, #ff4d6d);
             cursor: pointer;
-            box-shadow: 0 0 35px rgba(255, 160, 220, 0.7);
+            box-shadow: 0 0 30px rgba(255, 160, 220, 0.7);
             transition: 0.4s;
+            font-size: 14px;
         }
 
         .day-btn:hover {
-            transform: scale(1.18) rotate(2deg);
+            transform: scale(1.12);
         }
 
         .locked {
             opacity: 0.4;
+        }
+
+        /* TABLET */
+        @media (max-width: 992px) {
+            .days {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        /* MOBILE */
+        @media (max-width: 600px) {
+
+            #login h1,
+            .entry h1 {
+                font-size: 3.2rem;
+            }
+
+            .box {
+                padding: 28px 20px;
+                border-radius: 28px;
+            }
+
+            .box h2 {
+                font-size: 2.4rem;
+            }
+
+            .box p {
+                font-size: 16px;
+                line-height: 1.7;
+            }
+
+            .days {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            button {
+                font-size: 14px;
+                padding: 12px 28px;
+            }
         }
     </style>
 </head>
@@ -225,7 +279,7 @@
     </div>
 
     <!-- ENTRY -->
-    <div class="entry" id="entry">
+    <div class="entry p-3" id="entry">
         <h1>Welcome, My Love 💖</h1>
         <p> I made this space slowly, gently, thinking of you.
             Every click is a reminder that you are loved — deeply, quietly, truly.</p>
@@ -233,7 +287,7 @@
     </div>
 
     <!-- START MODAL -->
-    <div class="modal" id="startModal">
+    <div class="modal p-3 my-5" id="startModal">
         <div class="box">
             <div class="modal-float">💖</div>
             <h2>Your Safe Place 🌸</h2>
@@ -245,7 +299,7 @@
     </div>
 
     <!-- DAYS MODAL -->
-    <div class="modal" id="daysModal">
+    <div class="modal p-3 my-5" id="daysModal">
         <div class="box">
             <div class="modal-float">🌷</div>
             <h2>Our Days 💕</h2>
@@ -257,7 +311,7 @@
     </div>
 
     <!-- EXCITED MODAL -->
-    <div class="modal" id="exciteModal">
+    <div class="modal p-3 my-5" id="exciteModal">
         <div class="box">
             <div class="modal-float">✨</div>
             <h2>I’ve Been Waiting 💫</h2>
@@ -270,7 +324,7 @@
     </div>
 
     <!-- LOVE MODAL -->
-    <div class="modal" id="loveModal">
+    <div class="modal p-3 my-5" id="loveModal">
         <div class="box">
             <div class="modal-float">❤️</div>
             <h2 id="loveTitle"></h2>
@@ -282,7 +336,7 @@
     </div>
 
     <!-- WAIT MODAL -->
-    <div class="modal" id="waitModal">
+    <div class="modal p-3 my-5" id="waitModal">
         <div class="box">
             <div class="modal-float">🌸</div>
             <h2>Not Yet 💕</h2>
@@ -323,7 +377,7 @@
         const messages = {
             "2026-02-05": "Oi jhutiii 🤭, aaja ko din khasai special jasto lagdaina hola, but timilai sochda normal day pani automatically special bhaihalcha. Life ma dherai kura plan gare jasto hudaina, but some feelings just happen naturally — timi tyastai feeling hau. I may not say it every day, but timi malai calm, steady, ra real way ma important lagchhau. You don’t need to change, try, or prove anything. Just being you is already more than enough ❤️.",
 
-            "2026-02-06": "Jhutiii 🤭, aaja alik dherai timro yaad aayo. Kina aayo thaha xaina, but when your thought comes, mind slow huncha, heart light feel huncha. Life ko noise bich pani timi ekdam peaceful thought jasto lagchhau. You have this quiet power — bina kei nagari pani effect garne. Maybe that’s why timro presence feels so comforting. And honestly, that comfort matters to me more than I show 💕.",
+            "2026-02-06": "Jhutiii 🤭, aaja alik dherai timro yaad aayo. Kina aayo thaha xaina, but when your thought comes, mind slow huncha, heart light feel huncha. Life ko noise pani timi ekdam peaceful thought jasto lagchhau. You have this quiet power — bina kei nagari pani effect garne. Maybe that’s why timro presence feels so comforting. And honestly, that comfort matters to me more than I show 💕.",
 
             "2026-02-07": "🌹 Happy Rose Day jhutiii 🤭. Rose dina sakxu ki sakdina tyo ta thaha xaina, but today I want to give you something more honest — words. Timro heart ekdam rare cha. Jasari timi care garchhau, feel garchhau, ra bujhna khojchhau, that softness is genuinely beautiful. Dherai manche loud huncha, but timro beauty chai quiet cha. Yo rose, with all my respect and affection, only for you 🌹❤️.",
 
@@ -365,11 +419,17 @@
             btn.className = "day-btn";
             btn.innerHTML = `💖<br>${key}`;
             const bd = new Date(d); bd.setHours(0, 0, 0, 0);
-            if (bd.getTime() !== today.getTime()) btn.classList.add("locked");
+            if (bd.getTime() > today.getTime()) {
+                btn.classList.add("locked");
+            }
+
             btn.onclick = () => {
-                if (bd.getTime() === today.getTime()) {
-                    selected = key; openModal("exciteModal");
-                } else openModal("waitModal");
+                if (bd.getTime() <= today.getTime()) {
+                    selected = key;
+                    openModal("exciteModal");
+                } else {
+                    openModal("waitModal");
+                }
             };
             days.appendChild(btn);
         }
@@ -386,7 +446,7 @@
         setInterval(() => {
             const e = document.createElement("div");
             e.className = "float";
-            e.innerHTML = ["❤️", "🌸", "✨", "💖", "🌷", "💫", "🌹"][Math.floor(Math.random() * 7)];
+            e.innerHTML = ["❤️", "✨", "🫂", "😘", "🤭", "🫦", "💖", "🌷", "💫", "🌹"][Math.floor(Math.random() * 7)];
             e.style.left = Math.random() * 100 + "vw";
             e.style.animationDuration = (Math.random() * 4 + 5) + "s";
             document.body.appendChild(e);
