@@ -227,8 +227,8 @@
     <!-- ENTRY -->
     <div class="entry" id="entry">
         <h1>Welcome, My Love 💖</h1>
-        <p> I made this space slowly, gently, thinking of you.  
-    Every click is a reminder that you are loved — deeply, quietly, truly.</p>
+        <p> I made this space slowly, gently, thinking of you.
+            Every click is a reminder that you are loved — deeply, quietly, truly.</p>
         <button onclick="openModal('startModal')">Enter My Heart ✨</button>
     </div>
 
@@ -238,9 +238,9 @@
             <div class="modal-float">💖</div>
             <h2>Your Safe Place 🌸</h2>
             <p>One feeling opens each day — just for you.</p>
-            <button onclick="openModal('daysModal')">Continue 💞</button>
+            <button onclick="openModal('daysModal')">Are you Touching my ..... 💞</button>
             <br><br>
-            <button class="back" onclick="goBack('startModal')">Back</button>
+            <button class="back" onclick="goBack('startModal')">Turn Now 👈</button>
         </div>
     </div>
 
@@ -252,7 +252,7 @@
             <p>Only today opens. The rest are waiting with love.</p>
             <div class="days" id="days"></div>
             <br>
-            <button class="back" onclick="goBack('daysModal','startModal')">Back</button>
+            <button class="back" onclick="goBack('daysModal','startModal')">Turn Now 👈</button>
         </div>
     </div>
 
@@ -261,11 +261,11 @@
         <div class="box">
             <div class="modal-float">✨</div>
             <h2>I’ve Been Waiting 💫</h2>
-            <p>I kept this feeling safe for you today. just to give it to you now.  
-      Are you ready? </p>
-            <button onclick="openLove()">Open Jhutiii😘😘</button>
+            <p>I kept this feeling safe for you today. just to give it to you now.
+                Are you ready? </p>
+            <button onclick="openLove()">Jhutiii😘 Touch my .... slowly la 🤭😘 </button>
             <br><br>
-            <button class="back" onclick="goBack('exciteModal','daysModal')">Back</button>
+            <button class="back" onclick="goBack('exciteModal','daysModal')">Turn Now 👈</button>
         </div>
     </div>
 
@@ -277,7 +277,7 @@
             <p id="loveText"></p>
             <img id="loveImg">
             <br><br>
-            <button class="back" onclick="goBack('loveModal','exciteModal')">Back</button>
+            <button class="back" onclick="goBack('loveModal','exciteModal')">Turn Now 👈</button>
         </div>
     </div>
 
@@ -287,7 +287,7 @@
             <div class="modal-float">🌸</div>
             <h2>Not Yet 💕</h2>
             <p> but tomorrow I’ll open something even more beautiful. ❤️😘</p>
-            <button class="back" onclick="goBack('waitModal','daysModal')">Back</button>
+            <button class="back" onclick="goBack('waitModal','daysModal')">Turn Now 👈</button>
         </div>
     </div>
 
@@ -321,17 +321,16 @@
         const today = new Date(); today.setHours(0, 0, 0, 0);
 
         const messages = {
-            "2026-02-05": "Today, I want you to know this clearly: you matter to me in ways that feel calm, steady, and real. You don’t have to try — you’re already enough. You are deeply valued, exactly as you are.",
-            "2026-02-06": "When I think of you, my mind slows down. You bring a kind of peace I didn’t know I needed. Thinking of you brings calm to my heart.",
-            "2026-02-07": "There’s something rare about your heart. The way you care, the way you feel — it’s beautiful. Your heart is rare and beautiful.",
-            "2026-02-08": "Loving you doesn’t feel loud. It feels safe. And I hope you always feel that with me. Loving you feels safe and true.",
-            "2026-02-09": "You inspire me just by being yourself. Quietly. Honestly.",
-            "2026-02-10": "Even on days we don’t talk much, you are still present in my heart.",
-            "2026-02-11": "I admire you more than I say. And I appreciate you more than you know.",
-            "2026-02-12": "If you ever feel tired, remember this — you are never facing life alone.",
-            "2026-02-13": "My heart trusts you. That’s something I don’t give easily.",
-            "2026-02-14": "Valentine’s Day feels meaningful because it reminds me of you.",
-            "2026-02-15": "This journey ends here, but my feelings don’t. They stay — gently, deeply."
+            "2026-02-05": "Oi Motu: ma yo days ta khasai special mandaina her 🤭 ra pani timro lagi days normal vayani special banauna man layo 🤭🤭 Today, I want you to know this clearly: you matter to me in ways that feel calm, steady, and real. You don’t have to try — you’re already enough. You are deeply valued, exactly as you are.",
+            "2026-02-06": "Chal Jhutii kahiki 🤭.: When I think of you, my mind slows down. You bring a kind of peace I didn’t know I needed. Thinking of you brings calm to my heart.",
+            "2026-02-07": "Happy ROSE DAY! 🌹🌹 Motu: Rose dina sakxu ya sakdina tyo ta thaha xina jhutii, Just for you 🌹🌹.  There’s something rare about your heart. The way you care, the way you feel — it’s beautiful. Your heart is rare and beautiful.",
+            "2026-02-08": "Today I just want you to know how grateful I am for you. Your presence brings a quiet comfort into my life — the kind that doesn’t shout, but stays. Even on ordinary days, thinking of you makes my heart feel lighter. You matter to me more than you probably realize. Pagal Propose Day raix aaja . malai yo sb garna aaudaina jhutiii. Feel me😘❤️ Actually ma daily propose garxu jo timilai ni thaha xina. malai dekhauna aaudaina but timile tyo feel garko xu ki xina thaha xina but mero propose Jhuti lai 🌹😘🫂 ",
+            "2026-02-09": "Even on days we don’t talk much, you are still present in my heart. You are still important to me. You are still loved. Distance and silence don’t change that. You are still deeply cared for, no matter what. Jhutii Chocolate Day aaja. JHUTII chocolate ta bachcha le po khane ho ni 🤭 but timilai ta chocolate dinu parcha ra 🤭🤭 timilai ta u tyo man parx haina ra🤭🤭",
+            "2026-02-10": "I admire you more than I say. And I appreciate you more than you know. Your kindness, your strength, your heart — they all mean so much to me. I see you, I value you, and I’m grateful for you.  ma aafai teddy ho kya, maile dina parx ra 🤭🤭 na risaula teddy ta dinxu but not now, wa wala k real wala teddy dinxu la jhutiii time aayasi 🫂🫂🤭😘👨‍👩‍👧‍👦  ",
+            "2026-02-11": "If you ever feel tired, remember this — you are never facing life alone. I am here, quietly rooting for you, believing in you, and caring for you. You are not alone. I am here with you. You are deeply cared for. You are deeply loved. You are not alone. I am here with you.Bachha 🤭 k promise garam, malai mukhle vaner hawama udaune promise garna sakdina jhutiii but yati vanna sakxu najik vayar hos yaa tadha vayar timilai satha suppote, love garirahane xu la. bachcha 🤭🤭 yauta promise ta garxu la, vetda dudha na aayani bubu chai dinxu la 🤭🤭😘🫂 ",
+            "2026-02-12": "🫂🫂🫂My heart trusts you. That’s something I don’t give easily. I trust you with my feelings, my thoughts, and my care. That’s how much you mean to me. I trust you deeply. Hug day re jhutiii 🤭🤭 maile ta timilai hug garna parx ra 🤭 hug garda control nai hunna 🤭 thaha x ta timilai  🤗🤗 🫂🫂🫂🫂 ",
+            "2026-02-13": "Valentine’s Day feels meaningful because it reminds me of you. You are the reason this day feels special to me. You are the reason my heart feels full today. You are deeply cherished. 💋😘🫦 Kiss day re pagal jhutii, aaba normal dekhda ta uncontrol hune manche lai Kiss ko kura gardani control garna garo x ni jhutiii🫦🫦😘💋 kya bolu jhutiii timilai unlimited kiss garna max 🫦😘😘😘😘",
+            "2026-02-14": "😘🫦🌹🫂🤭❤️ Happy Valentine’s Day, my love. This journey ends here, but my feelings don’t. They stay — gently, deeply.  Thank you for being you, and for letting me care for you. You are deeply valued, today and always. Sadhai satha ma huna ta sakxu ya sakdina jhutii but i always miss you every mili-second and with every heart beat❤️❤️🫂 ma yastai xu jidhdhi, risalu, sankalu, k k ho k k , timi mero life ko yauta part ho so ma yo sab garna deserve garxu jhai laux, ma risauna na ni pauxu, gali garna ni pauxu, na bolna ni sakxu but heart le heartbeat sangai bolirako hunx, timi mero manche ho tesaile yo sab garxu. hoinau vane ta chup basirakhthe. any way jhutiii message ma ta jati lekheni sakinna, you are unlimited unexplainable part of my life. yati vane la jhuti🌹😘🤭❤️🫂🌹"
         };
 
         const images = [
